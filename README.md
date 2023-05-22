@@ -38,7 +38,19 @@ Para el análisis, se realizó una pequeña limpieza de los datos y se evaluó l
 
 Posteriormente, se verificó la eficacia de la segmentación mediante la reducción de variables. Finalmente, se creó un dashboard para presentar los gráficos y las conclusiones más importantes.
 
-## Resultados Destacados
+# Resultados Destacados
+
+## Conclusiones de las correlaciones
+
+![Correlaciones del Dataframe](Documentos_Dashboard\Correlacion.png)
+
+
+1. La variable 'PURCHASES' muestra una correlación alta con 'ONEOFF_PURCHASES' (0.917), 'INSTALLMENTS_PURCHASES' (0.680), 'PURCHASES_TRX' (0.690) y 'PAYMENTS' (0.603). Esto sugiere que los clientes que realizan compras más grandes (ONEOFF_PURCHASES) tienden a realizar más compras en general (PURCHASES) y en cuotas (INSTALLMENTS_PURCHASES). También hay una relación positiva con los pagos realizados (PAYMENTS), lo que indica que los clientes que realizan más compras también tienden a realizar pagos más grandes.
+
+2. La variable 'CASH_ADVANCE' muestra una correlación significativa con 'CASH_ADVANCE_FREQUENCY' (0.629) y 'CASH_ADVANCE_TRX' (0.656). Esto sugiere que los clientes que hacen más avances de efectivo (CASH_ADVANCE) también tienden a hacerlo con más frecuencia (CASH_ADVANCE_FREQUENCY) y en una mayor cantidad de transacciones (CASH_ADVANCE_TRX).
+
+
+## Conclsiones de las segmentaciones
 
 Los insights obtenidos a partir del análisis son los siguientes:
 
