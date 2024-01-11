@@ -1,5 +1,3 @@
-# Credit_Cards_Analytics
-
 # Credit Card Dataset Analysis
 
 This repository contains the analysis of a credit card dataset available on [Kaggle](https://www.kaggle.com/datasets/arjunbhasin2013/ccdata). The analysis focuses on customer segmentation based on two key factors: purchases and payments, credit limit and account balance, as well as cash advances. The relevant project information and findings are detailed below.
