@@ -1,99 +1,77 @@
 # Credit_Cards_Analytics
 
-# Análisis de Dataset de Tarjetas de Crédito
+# Credit Card Dataset Analysis
 
-Este repositorio contiene el análisis de un dataset de tarjetas de crédito que se puede encontrar en [Kaggle](https://www.kaggle.com/datasets/arjunbhasin2013/ccdata). El análisis se centra en la segmentación de usuarios en dos factores clave: compras y pagos, límite de crédito y saldo en la cuenta, así como adelantos en efectivo. A continuación se detalla la información relevante sobre el proyecto y los hallazgos obtenidos.
+This repository contains the analysis of a credit card dataset available on [Kaggle](https://www.kaggle.com/datasets/arjunbhasin2013/ccdata). The analysis focuses on customer segmentation based on two key factors: purchases and payments, credit limit and account balance, as well as cash advances. The relevant project information and findings are detailed below.
 
-## Acerca del Dataset
+## About the Dataset
 
-Este caso requiere desarrollar una segmentación de clientes para definir una estrategia de marketing. El dataset de muestra resume el comportamiento de aproximadamente 9000 titulares de tarjetas de crédito activas durante los últimos 6 meses. El archivo contiene datos a nivel de cliente con 18 variables de comportamiento.
+This case requires the development of a customer segmentation to define a marketing strategy. The sample dataset summarizes the behavior of approximately 9000 active credit card holders over the last 6 months. The file contains client-level data with 18 behavioral variables.
 
-A continuación se muestra el diccionario de datos del dataset de tarjetas de crédito:
+Below is the data dictionary of the credit card dataset:
 
-- CUST_ID: Identificación del titular de la tarjeta de crédito (Categórica)
-- BALANCE: Saldo restante en la cuenta para realizar compras
-- BALANCE_FREQUENCY: Frecuencia con la que se actualiza el saldo, puntuación entre 0 y 1 (1 = actualizado con frecuencia, 0 = no actualizado con frecuencia)
-- PURCHASES: Monto de compras realizadas desde la cuenta
-- ONEOFF_PURCHASES: Monto máximo de compra realizada en una sola transacción
-- INSTALLMENTS_PURCHASES: Monto de compra realizado en cuotas
-- CASH_ADVANCE: Dinero en efectivo adelantado por el usuario
-- PURCHASES_FREQUENCY: Frecuencia con la que se realizan compras, puntuación entre 0 y 1 (1 = compras frecuentes, 0 = compras no frecuentes)
-- ONEOFFPURCHASESFREQUENCY: Frecuencia de compras en una sola transacción (1 = compras frecuentes, 0 = compras no frecuentes)
-- PURCHASESINSTALLMENTSFREQUENCY: Frecuencia de compras a plazos (1 = frecuentes, 0 = no frecuentes)
-- CASHADVANCEFREQUENCY: Frecuencia con la que se paga en efectivo por adelantado
-- CASHADVANCETRX: Número de transacciones realizadas con "efectivo adelantado"
-- PURCHASES_TRX: Número de transacciones de compra realizadas
-- CREDIT_LIMIT: Límite de la tarjeta de crédito para el usuario
-- PAYMENTS: Monto de pago realizado por el usuario
-- MINIMUM_PAYMENTS: Monto mínimo de pagos realizado por el usuario
-- PRCFULLPAYMENT: Porcentaje de pago total realizado por el usuario
-- TENURE: Duración del servicio de la tarjeta de crédito para el usuario
+- CUST_ID: Credit card holder identification (Categorical)
+- BALANCE: Remaining account balance for purchases
+- BALANCE_FREQUENCY: Frequency of balance updates, score between 0 and 1 (1 = frequently updated, 0 = not frequently updated)
+- PURCHASES: Amount of purchases made from the account
+- ONEOFF_PURCHASES: Maximum purchase amount made in a single transaction
+- INSTALLMENTS_PURCHASES: Amount of purchase made in installments
+- CASH_ADVANCE: Cash advanced by the user
+- PURCHASES_FREQUENCY: Frequency of making purchases, score between 0 and 1 (1 = frequent purchases, 0 = infrequent purchases)
+- ONEOFF_PURCHASES_FREQUENCY: Frequency of one-off purchases (1 = frequent, 0 = infrequent)
+- PURCHASES_INSTALLMENTS_FREQUENCY: Frequency of installment purchases (1 = frequent, 0 = infrequent)
+- CASH_ADVANCE_FREQUENCY: Frequency of cash advances
+- CASH_ADVANCE_TRX: Number of transactions made with "cash advance"
+- PURCHASES_TRX: Number of purchase transactions made
+- CREDIT_LIMIT: Credit card limit for the user
+- PAYMENTS: Amount of payment made by the user
+- MINIMUM_PAYMENTS: Minimum amount of payments made by the user
+- PRCFULL_PAYMENT: Percentage of total payment made by the user
+- TENURE: Duration of credit card service for the user
 
-## Metodología de Análisis
+## Analysis Methodology
 
-Para el análisis, se realizó una pequeña limpieza de los datos y se evaluó la correlación entre cada una de las variables. Se llevaron a cabo dos segmentaciones utilizando el método K-means:
+The analysis began with a minor data cleanup and evaluated the correlation between each of the variables. Two segmentations were carried out using the K-means method:
 
-1. Segmentación basada en compras, pagos, límite de crédito y saldo en la cuenta.
-2. Segmentación basada en adelantos en efectivo, saldo, límite de crédito y pagos.
+1. Segmentation based on purchases, payments, credit limit, and account balance.
+2. Segmentation based on cash advances, balance, credit limit, and payments.
 
-Posteriormente, se verificó la eficacia de la segmentación mediante la reducción de variables. Finalmente, se creó un dashboard para presentar los gráficos y las conclusiones más importantes.
+The effectiveness of the segmentation was then verified through variable reduction. Finally, a dashboard was created to present the graphs and key conclusions.
 
-# Resultados Destacados
+# Highlighted Results
 
-## Conclusiones de las correlaciones
+## Correlation Conclusions
 
-![Correlaciones del Dataframe](Documentos_Dashboard\Correlacion.png)
+![Dataframe Correlations](Documentos_Dashboard/Correlation.png)
 
+1. The 'PURCHASES' variable shows a high correlation with 'ONEOFF_PURCHASES' (0.917), 'INSTALLMENTS_PURCHASES' (0.680), 'PURCHASES_TRX' (0.690), and 'PAYMENTS' (0.603). This suggests that customers who make larger purchases (ONEOFF_PURCHASES) tend to make more purchases in general (PURCHASES) and in installments (INSTALLMENTS_PURCHASES). There is also a positive relationship with payments made (PAYMENTS), indicating that customers who make more purchases also tend to make larger payments.
 
-1. La variable 'PURCHASES' muestra una correlación alta con 'ONEOFF_PURCHASES' (0.917), 'INSTALLMENTS_PURCHASES' (0.680), 'PURCHASES_TRX' (0.690) y 'PAYMENTS' (0.603). Esto sugiere que los clientes que realizan compras más grandes (ONEOFF_PURCHASES) tienden a realizar más compras en general (PURCHASES) y en cuotas (INSTALLMENTS_PURCHASES). También hay una relación positiva con los pagos realizados (PAYMENTS), lo que indica que los clientes que realizan más compras también tienden a realizar pagos más grandes.
+2. The 'CASH_ADVANCE' variable shows a significant correlation with 'CASH_ADVANCE_FREQUENCY' (0.629) and 'CASH_ADVANCE_TRX' (0.656). This suggests that customers who take more cash advances (CASH_ADVANCE) also tend to do so more frequently (CASH_ADVANCE_FREQUENCY) and in a greater number of transactions (CASH_ADVANCE_TRX).
 
-2. La variable 'CASH_ADVANCE' muestra una correlación significativa con 'CASH_ADVANCE_FREQUENCY' (0.629) y 'CASH_ADVANCE_TRX' (0.656). Esto sugiere que los clientes que hacen más avances de efectivo (CASH_ADVANCE) también tienden a hacerlo con más frecuencia (CASH_ADVANCE_FREQUENCY) y en una mayor cantidad de transacciones (CASH_ADVANCE_TRX).
+## Segmentation Conclusions
 
+The insights gained from the analysis are as follows:
 
-## Conclsiones de las segmentaciones
+![Customer Segmentation by Purchases and Balance](Documentos_Dashboard/Segmentation_for_clients_according_to_balance_purchases_and_maximum_credit.png)
 
-Los insights obtenidos a partir del análisis son los siguientes:
+- Focus on high-value customers: Prioritize customers with higher balances, purchases, and credit limits. These customers are key to retention and loyalty strategies. Additionally, segmentation number 2 stands out for its high purchases and payments, although they are not numerous and do not have the highest balances, they also require special attention.
 
-![Segmentación de clientes por compras y saldo](Documentos_Dashboard\Segmentación%20para%20los%20clientes%20según%20el%20balance,%20las%20Compras%20y%20el%20máximo%20de%20credito.png)
+- Capturing potential new customers (Growth Opportunities): Segmentation number 0 represents the largest number of customers in the dataset, indicating a great potential for attracting new customers. Improving their balance is key to classifying them into higher segmentations. It is important to monitor and analyze their behavior as they may change their purchase patterns and loyalty.
 
-| Segmentación | Número de clientes | Saldo              | Limite de Credito    | Pagos              | Compras            |
-|--------------|--------------------|--------------------|----------------------|--------------------|--------------------|
-| 0            | 5370               | 788.6242275523276  | 2163.2161183529083   | 867.0746977486033  | 490.6225288640584  |
-| 1            | 867                | 5047.509911416379  | 11822.72727272781   | 3666.0816629665514 | 1954.1553402537484 |
-| 2            | 117                | 4608.794345717949  | 12637.606837606836  | 19254.744854358978 | 10800.515811965815 |
-| 3            | 2595               | 1869.6335929263971 | 6503.06475156185    | 2090.2271132728324 | 1304.8659922928705 |
+![Segmentation by Cash Advances](Documentos_Dashboard/Segmentation_by_cash_advances.png)
 
+- Reducing cash payments: Segmentations 0 and 3 present a high percentage of cash payments, indicating the need to implement strategies to reduce cash usage and promote credit card payments. Attractive incentive programs and exclusive programs that encourage the adoption of this payment modality are suggested.
 
-- Enfoque en clientes de alto valor: Se recomienda priorizar a los clientes con mayores balances, compras y límites de crédito. Estos clientes son clave para las estrategias de retención y fidelización. Además, la segmentación número 2 destaca por sus altas compras y pagos, aunque no sean numerosos y no tengan los mayores saldos, por lo que también requieren atención especial.
+## References
 
+- AI Model: OpenAI's GPT-3.5
 
+This AI model, developed by OpenAI, provides advanced support for various applications, including data analysis, text generation, and natural language processing.
 
-
-- Captar nuevos clientes potenciales (Oportunidades de crecimiento): La segmentación número 0 representa la mayor cantidad de clientes en el conjunto de datos, lo que indica un gran potencial para captar nuevos clientes. Mejorar su balance es clave para clasificarlos en segmentaciones superiores. Es importante monitorear y analizar su comportamiento, ya que pueden cambiar sus patrones de compra y lealtad.
-  
-![Segemnatción por adelantos en efectivo](Documentos_Dashboard\Segmentación%20por%20avances%20en%20efectivo.png)
-
-| Segmentación | Número de clientes | % Adelanto en efectivo respecto al pago | Efectivo adelantado | Pagos              | Saldo              | Limite de Credito   |
-|--------------|--------------------|---------------------------------------|---------------------|--------------------|--------------------|---------------------|
-| 0            | 5399               | 51.15                     | 456.02  | 891.55 | 781.17 | 2170.95  |
-| 1            | 112                | 42.57                   | 8455.84  | 19864.79 | 4934.55  | 12486.16 |
-| 2            | 2533               | 47.76                      | 982.79   | 2057.52  | 1748.24 | 6635.93   |
-| 3            | 905                | 87.71                      | 3164.41  | 3607.81  | 5310.99  | 11387.85  |
-
-- Reducción del pago en efectivo: Las segmentaciones 0 y 3 presentan un alto porcentaje de pagos en efectivo, lo que indica la necesidad de implementar estrategias para disminuir el uso de efectivo y promover los pagos con tarjeta de crédito. Se sugiere establecer programas de incentivos atractivos y programas exclusivos que fomenten la adopción de esta modalidad de pago.
-
-## Referencias
-
-- Modelo de IA: GPT-3.5 de OpenAI
-
-
-Este modelo de IA, desarrollado por OpenAI, proporciona un soporte avanzado para diversas aplicaciones, incluyendo análisis de datos, generación de texto y procesamiento del lenguaje natural.
-
-Referencia: https://openai.com/
+Reference: https://openai.com/
 
 - HAINES CITY Credit Card - PCA - KElbow - KMeans
 
-Este proyecto en Kaggle utiliza técnicas de PCA (Análisis de Componentes Principales), KElbow y KMeans para el análisis de datos de tarjetas de crédito en la ciudad de Haines. Proporciona información valiosa sobre la segmentación de clientes y patrones de comportamiento en los datos de tarjetas de crédito.
+This Kaggle project uses PCA (Principal Component Analysis), KElbow, and KMeans techniques for credit card data analysis in Haines City. It provides valuable insights into customer segmentation and behavior patterns in credit card data.
 
-Referencia: https://www.kaggle.com/code/hainescity/credit-card-pca-kelbow-kmeans
-
+Reference: https://www.kaggle.com/code/hainescity/credit-card-pca-kelbow-kmeans
