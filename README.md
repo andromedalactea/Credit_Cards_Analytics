@@ -40,7 +40,7 @@ The effectiveness of the segmentation was then verified through variable reducti
 
 ## Correlation Conclusions
 
-![Dataframe Correlations](Documentos_Dashboard/Correlation.png)
+![Dataframe Correlations](docs_for_dasboard/Correlation.png)
 
 1. The 'PURCHASES' variable shows a high correlation with 'ONEOFF_PURCHASES' (0.917), 'INSTALLMENTS_PURCHASES' (0.680), 'PURCHASES_TRX' (0.690), and 'PAYMENTS' (0.603). This suggests that customers who make larger purchases (ONEOFF_PURCHASES) tend to make more purchases in general (PURCHASES) and in installments (INSTALLMENTS_PURCHASES). There is also a positive relationship with payments made (PAYMENTS), indicating that customers who make more purchases also tend to make larger payments.
 
@@ -50,13 +50,13 @@ The effectiveness of the segmentation was then verified through variable reducti
 
 The insights gained from the analysis are as follows:
 
-![Customer Segmentation by Purchases and Balance](Documentos_Dashboard/Segmentation_for_clients_according_to_balance_purchases_and_maximum_credit.png)
+![Customer Segmentation by Purchases and Balance](docs_for_dasboard/Segmentation_for_clients_according_to_balance_purchases_and_maximum_credit.png)
 
 - Focus on high-value customers: Prioritize customers with higher balances, purchases, and credit limits. These customers are key to retention and loyalty strategies. Additionally, segmentation number 2 stands out for its high purchases and payments, although they are not numerous and do not have the highest balances, they also require special attention.
 
 - Capturing potential new customers (Growth Opportunities): Segmentation number 0 represents the largest number of customers in the dataset, indicating a great potential for attracting new customers. Improving their balance is key to classifying them into higher segmentations. It is important to monitor and analyze their behavior as they may change their purchase patterns and loyalty.
 
-![Segmentation by Cash Advances](Documentos_Dashboard/Segmentation_by_cash_advances.png)
+![Segmentation by Cash Advances](docs_for_dasboard/Segmentation_by_cash_advances.png)
 
 - Reducing cash payments: Segmentations 0 and 3 present a high percentage of cash payments, indicating the need to implement strategies to reduce cash usage and promote credit card payments. Attractive incentive programs and exclusive programs that encourage the adoption of this payment modality are suggested.
 
